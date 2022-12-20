@@ -9,5 +9,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
+//middleware
+const indexRouter = require('./src/routes/index.js');
+
+app.use('/', indexRouter);
 
 module.exports = app;
