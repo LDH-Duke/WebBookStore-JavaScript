@@ -1,3 +1,4 @@
+const pool = require('../../db/db');
 
 const index = {}
 
@@ -16,6 +17,7 @@ index.signup = (req, res) => {
     res.render('signup');
 }
 index.signupProcess = (req, res) => {
-    console.log(req.body)
+    const { id, pw, name } = req.body;
+
 }
 module.exports = index;

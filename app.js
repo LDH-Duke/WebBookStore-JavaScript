@@ -4,6 +4,9 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 
+//
+const indexRouter = require('./src/routes/index.js');
+
 
 const app = express();
 
@@ -11,11 +14,13 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//middleware
-const indexRouter = require('./src/routes/index.js');
 
+
+//middleware use
+app.use(logger('dev'));
 app.use('/', indexRouter);
 
 module.exports = app;
