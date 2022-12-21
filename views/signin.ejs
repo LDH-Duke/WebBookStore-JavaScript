@@ -9,7 +9,15 @@
 </head>
 
 <body>
-    로그인 화면입니다.
+    <div id="signin">
+        <form action="/signin" method="post">
+            <input type="text" placeholder="아이디" name="id"><br>
+            <input type="text" placeholder="비밀번호" name="pw"><br>
+            <input type="submit" value="로그인">
+            <a href="/signup">회원가입</a>
+        </form>
+
+    </div>
 </body>
 
 </html>

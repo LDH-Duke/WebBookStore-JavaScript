@@ -8,4 +8,10 @@ router.get('/', ctrl.home);
 //login
 router.get('/signin', ctrl.signin);
 
+//signup
+router.get('/signup', ctrl.signup);
+router.post('/signup', ctrl.signupProcess);
+
+
+
 module.exports = router;
