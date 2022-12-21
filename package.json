@@ -17,5 +17,14 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LDH-Duke/WebBookStore-JavaScript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LDH-Duke/WebBookStore-JavaScript/issues"
+  },
+  "homepage": "https://github.com/LDH-Duke/WebBookStore-JavaScript#readme"
 }
