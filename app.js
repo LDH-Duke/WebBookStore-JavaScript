@@ -4,11 +4,16 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 
+
 //
 const indexRouter = require('./src/routes/index.js');
 
-
 const app = express();
+
+//session
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+
 
 //view engine set
 app.set('views', path.join(__dirname, 'views'));
