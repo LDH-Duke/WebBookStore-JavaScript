@@ -10,14 +10,26 @@
 
 <body>
     온라인 서점<br>
-    <div name="header">
-        <div name="nav">
-            <input type="text" placeholder="도서명을 입력하세요.">
-            <input type="submit" value="검색">
-        </div>
-        <a href="/signin">로그인</a>
-        <a href="/basket">장바구니</a>
-    </div>
-</body>
 
+    <% if(signinStatus){ %>
+        <div name="header">
+            <div name="nav">
+                <input type="text" placeholder="도서명을 입력하세요.">
+                <input type="submit" value="검색">
+            </div>
+            <a href="/signin">로그아웃</a>
+            <a href="/basket">장바구니</a>
+        </div>
+    <% } else{ %>
+        <div name="header">
+            <div name="nav">
+                <input type="text" placeholder="도서명을 입력하세요.">
+                <input type="submit" value="검색">
+            </div>
+            <a href="/signin">로그인</a>
+            <a href="/basket">장바구니</a>
+        </div>
+    <% } %>
+
+</body>
 </html>

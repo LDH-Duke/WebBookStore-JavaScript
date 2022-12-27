@@ -7,6 +7,7 @@ router.get('/', ctrl.home);
 
 //login
 router.get('/signin', ctrl.signin);
+router.post('/signin', ctrl.signinProcess);
 
 //signup
 router.get('/signup', ctrl.signup);
