@@ -14,7 +14,7 @@ index.home = async (req, res) => {
         });
     } else {
         res.render('index', {
-            book,
+            book: book[0],
             signinStatus: false,
         });
     }
@@ -80,9 +80,9 @@ index.signupProcess = async (req, res) => {
 
 //도서등록
 index.addbook = (req, res) => {
-    // if (!req.session.sid) {
-    //     res.send("<script>alert('로그인이 필요합니다.'); location.href='/'</script>");
-    // }
+    if (!req.session.sid) {
+        return res.send("<script>alert('로그인이 필요합니다.'); location.href='/'</script>");
+    }
     res.render('addbook');
 }
 
@@ -110,6 +110,10 @@ index.addbookProcess = async (req, res) => {
     ]);
 
     res.send("<script>alert('도서가 등록되었습니다.'); location.href='/';</script>");
+}
+
+index.searchProcess = (req, res)=>{
+    
 }
 
 

@@ -4,6 +4,7 @@ const ctrl = require("../controllers/index");
 
 //main view
 router.get('/', ctrl.home);
+router.post('/', ctrl.searchProcess);
 
 //login
 router.get('/signin', ctrl.signin);

@@ -3,6 +3,6 @@ const router = express.Router();
 const ctrl = require("../controllers/book");
 
 //bookdetail
-router.get('/bookdetail/:book', ctrl.bookdetail);
+router.get('/:book_id', ctrl.bookdetail);
 
 module.exports = router;

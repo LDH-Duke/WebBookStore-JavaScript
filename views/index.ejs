@@ -15,7 +15,7 @@
         <a href="/addbook">도서등록</a>
         <div id="booklist">
             <% book.forEach(books =>{ %>
-                <a href="/bookdetail/<%=book.book_id%>">도서명 : <%= books.book_name %>&nbsp<br></a>
+                <a href="/book/<%=books.book_id%>">도서명 : <%= books.book_name %>&nbsp<br></a>
             <% }) %>
             
         </div>
