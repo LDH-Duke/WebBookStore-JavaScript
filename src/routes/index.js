@@ -17,7 +17,6 @@ router.post('/signup', ctrl.signupProcess);
 router.get('/addbook', ctrl.addbook);
 router.post('/addbook', ctrl.addbookProcess);
 
-//bookdetail
-router.get('/bookdetail/:book', ctrl.bookdetail);
+
 
 module.exports = router;

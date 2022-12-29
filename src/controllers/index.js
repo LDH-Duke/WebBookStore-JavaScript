@@ -7,7 +7,6 @@ const index = {}
 //main
 index.home = async (req, res) => {
     const book = await pool.query("SELECT * FROM book");
-    console.log(req.params);
     if (req.session.sid) {
         res.render('index', {
             book: book[0],

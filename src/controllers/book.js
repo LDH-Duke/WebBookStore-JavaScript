@@ -10,3 +10,6 @@ book.bookdetail = (req, res)=>{
         book
     });
 }
+
+
+module.exports = book;
