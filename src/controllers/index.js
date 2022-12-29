@@ -6,13 +6,16 @@ const index = {}
 
 //main
 index.home = async (req, res) => {
-
+    const book = await pool.query("SELECT * FROM book");
+    console.log(req.params);
     if (req.session.sid) {
         res.render('index', {
+            book: book[0],
             signinStatus: true,
         });
     } else {
         res.render('index', {
+            book,
             signinStatus: false,
         });
     }
@@ -75,6 +78,8 @@ index.signupProcess = async (req, res) => {
     res.send("<script>alert('회원가입이 완료되었습니다.'); location.href='/signin'</script>")
 };
 
+
+//도서등록
 index.addbook = (req, res) => {
     // if (!req.session.sid) {
     //     res.send("<script>alert('로그인이 필요합니다.'); location.href='/'</script>");
@@ -87,16 +92,17 @@ index.addbookProcess = async (req, res) => {
     //1. 도서가 존재하는지 확인 1-1. 존재 시 수량만 추가(제목 및 가격 동일) / 1-2. 미존재 시 그냥 등록
     const bookCheck = await pool.query('SELECT*FROM book WHERE book_name=? AND book_price=?;', [title, price]);
 
-    //도서 존재 시 도서 수량추가 코드
-    // if (bookCheck) {
-    //     const query = 'UPDATE book SET book_count = book_count + ? WHERE book_name=? AND book_price=? VALUES (?,?,?);';
-    //     pool.query(query, [
-    //         count,
-    //         title,
-    //         price,
-    //     ]);
-    //     return res.send("<script>alert('도서가 추가되었습니다.'); location.href='/';</script>");
-    // }
+    // 도서 존재 시 도서 수량추가 코드
+    if (bookCheck[0].length) {
+        const upCount = bookCheck[0][0].book_count + Number(count);
+        const query = 'UPDATE book SET book_count=? WHERE book_id = ?';
+        pool.query(query, [
+            upCount,
+            bookCheck[0][0].book_id,
+        ]);
+        return res.send("<script>alert('도서가 추가되었습니다.'); location.href='/';</script>");
+    }
+    //신규 도서 등록
     const query = 'INSERT INTO book (book_name, book_count, book_price) VALUES (?,?,?);';
     pool.query(query, [
         title,
@@ -106,5 +112,9 @@ index.addbookProcess = async (req, res) => {
 
     res.send("<script>alert('도서가 등록되었습니다.'); location.href='/';</script>");
 }
+
+
+
+
 module.exports = index;
 
