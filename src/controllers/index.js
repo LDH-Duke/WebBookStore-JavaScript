@@ -1,4 +1,5 @@
 
+const { render } = require('ejs');
 const session = require('express-session');
 const pool = require('../../db/db');
 
@@ -61,7 +62,6 @@ index.signup = async (req, res) => {
 
 index.signupProcess = async (req, res) => {
     const { id, pw, name } = req.body;
-
     const idCheck = await pool.query('SELECT * FROM user WHERE user_id = ?;', [id]);
 
     if (idCheck[0].length === 1) {
@@ -112,7 +112,18 @@ index.addbookProcess = async (req, res) => {
     res.send("<script>alert('도서가 등록되었습니다.'); location.href='/';</script>");
 }
 
-index.searchProcess = (req, res)=>{
+//검색
+index.searchProcess = async (req, res)=>{
+    const {search} = req.body;
+    const searchBook = await pool.query("SELECT * FROM book WHERE book_name LIKE ?", '%'+[search]+'%');
+    
+    if (!req.session.sid) {
+        return res.send("<script>alert('로그인 후 검색가능합니다.'); location.href='/';</script>")
+    } 
+    res.render('index', {
+        book: searchBook[0],
+        signinStatus: true,
+    });
     
 }
 

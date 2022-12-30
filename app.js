@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 //
 const indexRouter = require('./src/routes/index');
 const bookRouter = require('./src/routes/book');
+const mypageRouter = require('./src/routes/mypage');
 
 const app = express();
 
@@ -53,5 +54,6 @@ app.use(cookieParser());
 //router
 app.use('/', indexRouter);
 app.use('/book', bookRouter);
+app.use('/mypage', mypageRouter);
 
 module.exports = app;

@@ -15,18 +15,19 @@
         <div name="header">
             <div name="nav">
                 <form action="/" method="post">
-                    <input type="text" placeholder="도서명을 입력하세요.">
+                    <input type="text" name="search" placeholder="도서명을 입력하세요." >
                     <input type="submit" value="검색">
                 </form>
             </div>
             <a href="/signin">로그아웃</a>
+            <a href="/mypage">마이페이지</a>
             <a href="/basket">장바구니</a>
         </div>
     <% } else{ %>
         <div name="header">
             <div name="nav">
                 <form action="/" method="post">
-                    <input type="text" placeholder="도서명을 입력하세요.">
+                    <input type="text" name="search" placeholder="도서명을 입력하세요.">
                     <input type="submit" value="검색">
                 </form>
             </div>
