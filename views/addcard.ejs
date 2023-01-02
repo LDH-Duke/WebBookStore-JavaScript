@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card_add">
+        카드 등록
+        <form id="addform" action="/mypage/addcard" method="post">
+            <input type="text" placeholder="카드번호" name="card_num"><br>
+            <input type="text" placeholder="유효기간" name="card_date"><br>
+            <input type="text" list="type" placeholder="카드종류" name="card_type"><br>
+            <datalist id="type">
+                <option value="신용카드">
+                <option value="체크카드">
+            </datalist>
+            <input type="text" placeholder="은행명" name="card_bank_name"><br>
+            <input type="submit" value="등록">
+        </form>
+    </div>
+</body>
+</html>

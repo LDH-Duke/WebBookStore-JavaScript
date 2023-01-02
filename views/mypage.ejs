@@ -9,18 +9,48 @@
 <body>
     <div class="profile_info">
         <div class="user_name">
-            <%= user.user_name%>님의 마이페이지입니다.>
-        </div>
+            <%= user.user_name%>님의 마이페이지입니다.
+        </div><hr>
         <div class="user_card">
             소유한카드 수 / 정보 / 등록 / 삭제
+            <div class="card_info">
+                <div class="card_amount">카드 수</div>
+                <div class="card_detail">카드 정보</div>
+                <div class="card_thead">
+                    <div class="tr">
+                        <span class="th card_num">카드번호</span>
+                        <span class="th card_date">유효기간</span>
+                        <span class="th card_type">카드종류</span>
+                        <span class="th card_bank">은행명</span>
+                    </div>
+                </div>
+                <div class="card_tbody">
+                    <% userCard.forEach(card =>{ %>
+                    <div class="tr">
+                        <span class="th card_num"><%=card.card_num%></span>
+                        <span class="th card_date"><%=card.card_date%></span>
+                        <span class="th card_type"><%=card.card_type%></span>
+                        <span class="th card_bank"><%=card.card_bank_name%></span>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="add_card">
+                <a href="/mypage/addcard">카드 등록</a>
+            </div>
         </div>
+        <hr>
         <div class="user_address">
             등록된 배송지 수 / 배송지 정보 / 등록 / 삭제 
+            <div class="address_info">
+
+            </div>
+            <div class="add_address">
+                <a href="/mypage/add_address">카드 등록</a>
+            </div>
         </div>
         
     </div> 
-    
-    
     
 </body>
 </html>
